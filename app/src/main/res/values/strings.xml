@@ -4,6 +4,5 @@
     <string name="button2">Workshops</string>
     <string name="button3">Competition</string>
     <string name="button4">Interviews</string>
-    <string name="padding">10dp</string>
 
 </resources>
