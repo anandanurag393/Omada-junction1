@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id = "@+id/more_screen_scrollview"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+    <LinearLayout
+        android:id = "@+id/more_screen_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background = "#EEEEEE"
+            >
+
+            <TextView
+                android:id = "@+id/more_username_textview"
+                android:text = "Hello User"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_margin = "10dp"
+                android:textSize="16sp"
+                />
+
+            <Button
+                android:id = "@+id/more_userphoto_imageview"
+                android:background="@color/JunctionPurple"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:layout_gravity="center|left"
+                android:layout_margin = "10dp"
+                />
+
+
+        </FrameLayout>
+
+        <TextView
+            android:id = "@+id/profile_settings"
+            android:text = "Your Profile"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="20dp"
+            />
+
+        <Button
+            android:id = "@+id/personal_details"
+            android:text = "Personal Details"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/plain"
+            android:padding="10dp"
+            android:gravity = "start|center"
+            android:stateListAnimator="@null"
+            />
+
+        <Button
+            android:id = "@+id/autofill_settings"
+            android:text = "Autofill Settings"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/plain"
+            android:padding="10dp"
+            android:gravity = "start|center"
+            android:stateListAnimator="@null"
+            />
+
+        <TextView
+            android:id = "@+id/app_settings"
+            android:text = "App Settings"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft = "20dp"
+            />
+
+        <Button
+            android:id = "@+id/event_history"
+            android:text = "Events You Attended"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/plain"
+            android:padding="10dp"
+            android:gravity = "start|center"
+            android:stateListAnimator="@null"
+            />
+
+        <Button
+            android:id = "@+id/your_interests"
+            android:text = "Your Interests"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/plain"
+            android:padding="10dp"
+            android:gravity = "start|center"
+            android:stateListAnimator="@null"
+            />
+
+        <Button
+            android:id = "@+id/app_theme"
+            android:text = "Theme"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/plain"
+            android:padding="10dp"
+            android:gravity = "start|center"
+            android:stateListAnimator="@null"
+            />
+
+
+    </LinearLayout>
+</ScrollView>
