@@ -1,6 +1,5 @@
-package com.example.omada;
+package com.omada.junction;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;

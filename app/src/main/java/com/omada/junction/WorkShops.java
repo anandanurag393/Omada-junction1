@@ -1,4 +1,4 @@
-package com.example.omada;
+package com.omada.junction;
 
 import android.app.Activity;
 import android.os.Bundle;

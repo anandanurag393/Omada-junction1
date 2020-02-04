@@ -1,11 +1,7 @@
-package com.example.omada;
+package com.omada.junction;
 
 import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
