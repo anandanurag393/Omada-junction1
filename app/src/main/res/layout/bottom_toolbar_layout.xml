@@ -6,7 +6,7 @@
     android:layout_height="60dp"
     android:layout_gravity="bottom">
 
-    <Button
+    <com.omada.junction.BottomToolbarButton
         android:id = "@+id/explore_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:layout_marginStart="20dp"
         />
 
-    <Button
+    <com.omada.junction.BottomToolbarButton
         android:id = "@+id/junction_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         android:text = "Junction"
         />
 
-    <Button
+    <com.omada.junction.BottomToolbarButton
         android:id = "@+id/more_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

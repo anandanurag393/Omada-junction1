@@ -18,9 +18,8 @@
         app:layout_constraintRight_toRightOf="@id/root_layout"
         />
 
-    <View
+    <com.omada.junction.BottomToolbar
         android:id="@+id/bottom_toolbar"
-        class="com.omada.junction.BottomToolbar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="@id/root_layout"
