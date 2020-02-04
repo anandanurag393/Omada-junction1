@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <EditText
+            android:id = "@+id/search_bar_text"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight = "1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="start|top"
+            android:background = "@drawable/active_button_purple"
+            />
+
+        <Button
+            android:id = "@+id/search_bar_button"
+            android:layout_height="50dp"
+            android:layout_width = "wrap_content"
+            android:layout_gravity = "end|center"
+            android:text = "go"
+            android:layout_marginEnd="10dp"
+            />
+
+</merge>

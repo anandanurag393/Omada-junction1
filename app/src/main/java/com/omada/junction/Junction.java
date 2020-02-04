@@ -5,7 +5,13 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.fragment.app.Fragment;
+
+//TODO
+//
+//Create layout for card
+//Create Cardholder scrollview class
+//Create mechanism to display multiple possible Cardholders in same feedscreen fragment
 
 public class Junction extends AppCompatActivity {
 
@@ -29,10 +35,29 @@ public class Junction extends AppCompatActivity {
             return;
         }
         //fragment transaction code here
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content_area, FeedScreen.newInstance(), null)
-                .disallowAddToBackStack()
-                .commit();
+        Object fr;
+        switch(activeScreen){
+            case 0:
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.content_area, ExploreScreen.newInstance(), null)
+                        .disallowAddToBackStack()
+                        .commit();
+                break;
+            case 1:
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.content_area, FeedScreen.newInstance(), null)
+                        .disallowAddToBackStack()
+                        .commit();
+                break;
+            case 2:
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.content_area, MoreScreen.newInstance(), null)
+                        .disallowAddToBackStack()
+                        .commit();
+                break;
+
+        }
+
 
     }
 
