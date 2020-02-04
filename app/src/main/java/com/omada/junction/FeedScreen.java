@@ -1,6 +1,5 @@
 package com.omada.junction;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
+
 
 public class FeedScreen extends Fragment {
     //code goes here
@@ -30,10 +30,10 @@ public class FeedScreen extends Fragment {
 
     @Override
     public void onViewCreated(View v, Bundle b){
-        feedScreenLayout = (LinearLayout)getView().findViewById(R.id.feed_screen_layout);
+        feedScreenLayout = (LinearLayout) getView().findViewById(R.id.feed_screen_linearlayout);
     }
 
-    public static FeedScreen newInstance(int index){
+    public static FeedScreen newInstance(){
         FeedScreen f = new FeedScreen();
         //put arguments here
         return f;

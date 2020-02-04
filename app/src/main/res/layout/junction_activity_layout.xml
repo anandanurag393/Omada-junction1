@@ -1,32 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id = "@+id/root_layout"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Junction">
 
     <FrameLayout
         android:id="@+id/content_area"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottom_toolbar"
-        app:layout_constraintTop_toTopOf="@id/root_layout"
-        app:layout_constraintLeft_toLeftOf="@id/root_layout"
-        app:layout_constraintRight_toRightOf="@id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height = "0dp"
+        android:layout_weight="1"
         />
 
     <com.omada.junction.BottomToolbar
-        android:id="@+id/bottom_toolbar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:layout_constraintBottom_toBottomOf="@id/root_layout"
-        app:layout_constraintTop_toBottomOf="@id/content_area"
-        app:layout_constraintLeft_toLeftOf="@id/root_layout"
-        app:layout_constraintRight_toRightOf="@id/root_layout"
         />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -4,36 +4,58 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 
-public class BottomToolbar extends LinearLayout implements View.OnClickListener{
+public class BottomToolbar extends FrameLayout implements View.OnClickListener{
 
     int pressedButtonId;
 
     public BottomToolbar(Context c, AttributeSet attrs){
         super(c, attrs);
+
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.bottom_toolbar_layout, this);
 
         BottomToolbarButton exploreButton = findViewById(R.id.explore_button);
+        exploreButton.setToolbarParams(0, 0, 0);
+
         BottomToolbarButton junctionButton = findViewById(R.id.junction_button);
+        junctionButton.setToolbarParams(0, 0, 0);
+
         BottomToolbarButton moreButton = findViewById(R.id.more_button);
+        moreButton.setToolbarParams(0, 0, 0);
 
+        junctionButton.carryOutAction();
         junctionButton.changeImage();
-
         pressedButtonId = junctionButton.getId();
 
     }
 
     public void onClick(View v){
-        if(v.getId()==pressedButtonId){
+
+        if(v.getId() == pressedButtonId){
             return;
         }
-        else{
-            ((BottomToolbarButton)findViewById(pressedButtonId)).changeImage();
-            pressedButtonId = v.getId();
 
+        boolean valid = true;
+        switch(v.getId()){
+            case R.id.explore_button:
+                pressedButtonId = R.id.explore_button;
+                break;
+            case R.id.junction_button:
+                pressedButtonId = R.id.junction_button;
+                break;
+            case R.id.more_button:
+                pressedButtonId = R.id.more_button;
+                break;
+            default:
+                valid = false;
+                break;
+        }
+
+        if(valid){
+            ((BottomToolbarButton)v).carryOutAction(); //tells button to tell activity to change fragment
+            ((BottomToolbarButton)v).changeImage(); //changes button to active
         }
     }
 

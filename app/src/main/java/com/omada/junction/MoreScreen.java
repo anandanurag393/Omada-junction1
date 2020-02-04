@@ -12,8 +12,7 @@ public class MoreScreen extends Fragment {
     View view;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.more_screen_layout, container, false);
         //attach functionalities and listeners to buttons in view here
         return view;
