@@ -15,6 +15,8 @@ public class CardScroller extends ScrollView {
         LayoutInflater inflater = LayoutInflater.from(context);
         inflater.inflate(R.layout.card_scroller_layout, this, false);
 
+        contentLayout = findViewById(R.id.card_scroller_linearlayout);
+        //change properties of content layout here
     }
 
     public void addCard() {     //arguments here

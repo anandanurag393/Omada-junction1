@@ -43,6 +43,7 @@ public class BottomToolbarButton extends AppCompatImageView{
             if(con instanceof Junction){
                 ((Junction)con).setActiveScreen(screenPointer);
             }
+            con = ((ContextWrapper) con).getBaseContext();
         }
     }
 }
