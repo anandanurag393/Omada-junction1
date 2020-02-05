@@ -35,7 +35,9 @@ public class Junction extends AppCompatActivity {
             return;
         }
         //fragment transaction code here
-        Object fr;
+        //TODO
+        //replace fragment.newInstance() with a class instance variable defined in constructor
+
         switch(activeScreen){
             case 0:
                 getSupportFragmentManager().beginTransaction()
