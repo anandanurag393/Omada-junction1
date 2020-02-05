@@ -17,4 +17,10 @@ public class MoreScreen extends Fragment {
         //attach functionalities and listeners to buttons in view here
         return view;
     }
+
+    public static MoreScreen newInstance(){
+        MoreScreen f = new MoreScreen();
+        //put arguments here
+        return f;
+    }
 }
