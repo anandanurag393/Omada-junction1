@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/autofill_settings_layout"
     android:padding="@dimen/padding">
     <FrameLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -32,10 +34,13 @@
 
     </FrameLayout>
     <ScrollView
+        android:id="@+id/autofill_settings_scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
         <LinearLayout
+            android:id="@+id/autofill_settings_contents_linearlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -49,7 +54,7 @@
                 >
 
                 <TextView
-
+                    android:id="@+id/autofillText"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="5"
@@ -60,6 +65,7 @@
                     android:textSize="30dp"></TextView>
 
                 <Switch
+                    android:id="@+id/sutofill_switch"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -67,6 +73,7 @@
 
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/autofill_settings_name"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -89,6 +96,7 @@
                     ></TextView>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/autofill_settings_roll_no"
                 android:padding="@dimen/padding"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -111,6 +119,7 @@
                     ></TextView>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/autofill_settings_Email_id"
                 android:padding="@dimen/padding"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -133,6 +142,7 @@
                     ></TextView>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/autofill_settings_year"
                 android:padding="@dimen/padding"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
@@ -155,6 +165,7 @@
                     ></TextView>
             </LinearLayout>
             <Button
+                android:id="@+id/autofill_settings_edit_button"
                 android:padding="@dimen/padding"
                 android:layout_gravity="right"
 
