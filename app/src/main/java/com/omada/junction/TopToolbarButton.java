@@ -9,13 +9,13 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.widget.AppCompatButton;
 
-public class TopToolbarButton extends AppCompatButton implements View.OnClickListener {
+public class TopToolbarButton extends AppCompatButton {
 
     private boolean state; //true means selected
 
     public TopToolbarButton(Context c, AttributeSet attrs, String text){
         super(c, attrs);
-        state = false;
+        state = true;
         setText(text);
         setTextColor(getResources().getColor(R.color.JunctionPurple));
 
@@ -25,15 +25,25 @@ public class TopToolbarButton extends AppCompatButton implements View.OnClickLis
 
         setLayoutParams(params);
 
+        changeImage();
+
     }
 
-    @Override
-    public void onClick(View v){
+    public void changeImage(){
 
-        if(state)
-            return;
-        setBackground(getResources().getDrawable(R.drawable.active_button_purple));
-        setTextColor(getResources().getColor(R.color.White));
+        if(state) {
+            setBackground(getResources().getDrawable(R.drawable.active_button_purple));
+            setTextColor(getResources().getColor(R.color.White));
+        }
+        else{
+            setBackground(getResources().getDrawable(R.drawable.idle_button_white));
+            setTextColor(getResources().getColor(R.color.JunctionLightGray));
+        }
         state = !state;
+    }
+
+    public void carryOutAction(){
+        //TODO
+        //change the layout in content_area
     }
 }

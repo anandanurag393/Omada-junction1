@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
+//TODO
+//set screenpointer, active and idle images for buttons
+
 public class BottomToolbar extends FrameLayout implements View.OnClickListener{
 
     int pressedButtonId;
