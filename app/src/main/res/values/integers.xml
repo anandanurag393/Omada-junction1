@@ -3,4 +3,8 @@
     <dimen name="padding">10dp</dimen>
     <dimen name="description">16dp</dimen>
     <dimen name="content">20dp</dimen>
+    <dimen name = "card_content_width">100dp</dimen>dimen>
+    <dimen name = "card_content_height">100dp</dimen>
+    <dimen name = "card_desc_width">100dp</dimen>
+    <dimen name = "card_desc_height">100dp</dimen>
 </resources>

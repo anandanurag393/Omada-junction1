@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:layout_height="match_parent"
+    <HorizontalScrollView
+        android:id = "@+id/container_scrollview"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
         >
 
         <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_weight = "1">
-        <FrameLayout
-            android:id = "@+id/card_face"
-            android:layout_height="0dp"
-            android:layout_width = "match_parent"
-            android:layout_weight = "1"
-            android:layout_margin ="2dp"
-            android:layout_gravity="center"
-            />
+            android:id = "@+id/container_layout"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            >
 
-        <FrameLayout
-            android:id = "@+id/card_details"
-            android:layout_height="20dp"
-            android:layout_width = "match_parent"
-            android:layout_margin ="2dp"
-            android:layout_gravity="center"
-            />
+            <FrameLayout
+                android:id = "@+id/card_face"
+                android:layout_height="@dimen/card_content_height"
+                android:layout_width = "@dimen/card_content_width"
+                android:layout_weight = "1"
+                android:layout_margin ="2dp"
+                android:layout_gravity="center"
+                />
+
+            <FrameLayout
+                android:id = "@+id/card_details"
+                android:layout_height="@dimen/card_desc_height"
+                android:layout_width = "@dimen/card_desc_width"
+                android:layout_margin ="2dp"
+                android:layout_gravity="center"
+                />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_width="0dp"
-            android:orientation="vertical"
-            android:layout_weight = "1"/>
+    </HorizontalScrollView>
 
-    </LinearLayout>
-
-</merge>
+</LinearLayout>

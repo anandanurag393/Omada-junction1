@@ -10,6 +10,6 @@ public class AutofillSettings extends LinearLayout
     public AutofillSettings(Context context) {
         super(context);
         LayoutInflater layoutInflater= LayoutInflater.from(context);
-        layoutInflater.inflate(R.layout.autofill_setttings,this,true);
+        layoutInflater.inflate(R.layout.autofill_settings_layout,this,true);
     }
 }
