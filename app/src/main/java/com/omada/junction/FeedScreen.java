@@ -30,7 +30,7 @@ public class FeedScreen extends Fragment {
 
     @Override
     public void onViewCreated(View v, Bundle b){
-        feedScreenLayout = (LinearLayout) getView().findViewById(R.id.feed_screen_linearlayout);
+        feedScreenLayout = getView().findViewById(R.id.feed_screen_root);
     }
 
     public static FeedScreen newInstance(){
