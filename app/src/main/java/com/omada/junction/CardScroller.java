@@ -18,7 +18,7 @@ public class CardScroller extends ScrollView {
 
     private static final int SWIPE_MIN_DISTANCE = 5;
     private static final int SWIPE_THRESHOLD_VELOCITY = 300;
-    private ArrayList cardsList = null;
+    private ArrayList<View> cardsList = null;
     private GestureDetector gestureDetector;
     private int activeCard = 0;
 
@@ -58,6 +58,11 @@ public class CardScroller extends ScrollView {
         });
 
         gestureDetector = new GestureDetector(getContext(), new MyGestureDetector());
+    }
+
+    public void changeContents(int contentIdentifier){
+        //TODO
+        //change cards based on input from top toolbar button sent via contentId
     }
 
     class MyGestureDetector extends GestureDetector.SimpleOnGestureListener {

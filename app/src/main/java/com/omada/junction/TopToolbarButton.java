@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.widget.AppCompatButton;
@@ -12,6 +13,7 @@ import androidx.appcompat.widget.AppCompatButton;
 public class TopToolbarButton extends AppCompatButton {
 
     private boolean state; //true means selected
+    private int contentIdentifier; //to link images and content in database with this button title
 
     public TopToolbarButton(Context c, AttributeSet attrs, String text){
         super(c, attrs);
@@ -43,7 +45,8 @@ public class TopToolbarButton extends AppCompatButton {
     }
 
     public void carryOutAction(){
-        //TODO
-        //change the layout in content_area
+
+        CardScroller cardScroller = ((TopToolbar)getParent()).getCardScroller();
+        cardScroller.changeContents(contentIdentifier);
     }
 }

@@ -7,7 +7,6 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
 
 public class JunctionCard extends HorizontalScrollView {
 
@@ -41,4 +40,12 @@ public class JunctionCard extends HorizontalScrollView {
         faceMargins.rightMargin = (int)spaceWidth;
 
     }
+
+    protected void styleCardFace(){
+
+    }
+    protected void styleCardDesc(){
+
+    }
+
 }
