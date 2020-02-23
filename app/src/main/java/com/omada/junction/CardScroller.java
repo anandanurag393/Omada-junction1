@@ -46,11 +46,11 @@ public class CardScroller extends ScrollView {
                     return true;
                 }
                 else if(event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL ){
-                    int scrollX = getScrollX();
-                    int featureWidth = v.getMeasuredWidth(); //TODO adjust for margins and padding
-                    activeCard = ((scrollX + (featureWidth/2))/featureWidth);
-                    int scrollTo = activeCard * featureWidth;
-                    smoothScrollTo(scrollTo, 0);
+                    int scrollY = getScrollY();
+                    int featureHeight = v.getMeasuredHeight(); //TODO adjust for margins and padding
+                    activeCard = ((scrollY + (featureHeight/2))/featureHeight);
+                    int scrollTo = activeCard * featureHeight;
+                    smoothScrollTo(0, scrollTo);
                     return true;
                 }
                 else{
@@ -68,22 +68,21 @@ public class CardScroller extends ScrollView {
     }
 
     class MyGestureDetector extends GestureDetector.SimpleOnGestureListener {
-
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             try {
-                //right to left
-                if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                    int featureWidth = getMeasuredWidth();
+                //down to up
+                if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+                    int featureHeight = getMeasuredHeight();
                     activeCard = (activeCard < (cardsList - 1))? activeCard + 1 : cardsList -1;
-                    smoothScrollTo(activeCard * featureWidth, 0);
+                    smoothScrollTo(0, activeCard * featureHeight);
                     return true;
                 }
-                //left to right
-                else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                    int featureWidth = getMeasuredWidth();
+                //up to down
+                else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+                    int featureHeight = getMeasuredHeight();
                     activeCard = (activeCard > 0) ? activeCard - 1 : 0;
-                    smoothScrollTo(activeCard * featureWidth, 0);
+                    smoothScrollTo(0, activeCard * featureHeight);
                     return true;
                 }
 
