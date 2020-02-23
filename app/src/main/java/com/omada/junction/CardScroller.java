@@ -18,9 +18,10 @@ public class CardScroller extends ScrollView {
 
     private static final int SWIPE_MIN_DISTANCE = 5;
     private static final int SWIPE_THRESHOLD_VELOCITY = 300;
-    private ArrayList<View> cardsList = null;
     private GestureDetector gestureDetector;
+
     private int activeCard = 0;
+    private int cardsList = 0;  //number of cards
 
     public CardScroller(Context context, AttributeSet attrs){
         super(context, attrs);
@@ -37,6 +38,7 @@ public class CardScroller extends ScrollView {
         //load cards and set cardsList here
 
         setOnTouchListener(new View.OnTouchListener() {
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 //If the user swipes
@@ -45,7 +47,7 @@ public class CardScroller extends ScrollView {
                 }
                 else if(event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL ){
                     int scrollX = getScrollX();
-                    int featureWidth = v.getMeasuredWidth();
+                    int featureWidth = v.getMeasuredWidth(); //TODO adjust for margins and padding
                     activeCard = ((scrollX + (featureWidth/2))/featureWidth);
                     int scrollTo = activeCard * featureWidth;
                     smoothScrollTo(scrollTo, 0);
@@ -73,7 +75,7 @@ public class CardScroller extends ScrollView {
                 //right to left
                 if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                     int featureWidth = getMeasuredWidth();
-                    activeCard = (activeCard < (cardsList.size() - 1))? activeCard + 1 : cardsList.size() -1;
+                    activeCard = (activeCard < (cardsList - 1))? activeCard + 1 : cardsList -1;
                     smoothScrollTo(activeCard * featureWidth, 0);
                     return true;
                 }

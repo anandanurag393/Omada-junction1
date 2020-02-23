@@ -20,6 +20,13 @@ public class JunctionCard extends HorizontalScrollView {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.card_layout, this);
 
+    }
+
+    @Override
+    public void onAttachedToWindow(){
+
+        super.onAttachedToWindow();
+
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity)getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         float screenWidth = displayMetrics.widthPixels;
@@ -38,14 +45,17 @@ public class JunctionCard extends HorizontalScrollView {
         faceMargins = (MarginLayoutParams) (cardDesc.getLayoutParams());
         faceMargins.leftMargin = 0;
         faceMargins.rightMargin = (int)spaceWidth;
-
     }
 
+
     protected void styleCardFace(){
+        //TODO
+        //use this as an overridden method in inheriting classes
 
     }
     protected void styleCardDesc(){
-
+        //TODO
+        //use this as an overridden method in inheriting classes
     }
 
 }
