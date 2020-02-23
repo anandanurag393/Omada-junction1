@@ -1,0 +1,8 @@
+
+Junction Activity excecuting properly
+Fragment transactions working properly
+Bottom toolbar loading
+Bottom Toolbar actions not working //use android:clickable
+Feed screen fragment not loading
+More Screen fragment loading and functioning
+Explore Screen Fragment loading

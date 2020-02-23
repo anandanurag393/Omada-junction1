@@ -2,6 +2,7 @@ package com.omada.junction;
 
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,11 +30,12 @@ public class Junction extends AppCompatActivity {
         this.moreScreen = MoreScreen.newInstance();
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content_area, this.feedScreen, null)
-                .disallowAddToBackStack()
+                .replace(R.id.content_area, this.moreScreen, null)
                 .commit();
 
         activeScreen = 1;
+
+        Toast.makeText(this, "here", Toast.LENGTH_SHORT).show();
     }
 
     public void setActiveScreen(int activeScreen){

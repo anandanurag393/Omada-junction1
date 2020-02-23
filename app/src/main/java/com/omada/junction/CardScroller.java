@@ -73,14 +73,14 @@ public class CardScroller extends ScrollView {
             try {
                 //down to up
                 if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-                    int featureHeight = getMeasuredHeight();
+                    int featureHeight = getMeasuredHeight(); //TODO adjust for margins and padding
                     activeCard = (activeCard < (cardsList - 1))? activeCard + 1 : cardsList -1;
                     smoothScrollTo(0, activeCard * featureHeight);
                     return true;
                 }
                 //up to down
                 else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-                    int featureHeight = getMeasuredHeight();
+                    int featureHeight = getMeasuredHeight(); //TODO adjust for margins and padding
                     activeCard = (activeCard > 0) ? activeCard - 1 : 0;
                     smoothScrollTo(0, activeCard * featureHeight);
                     return true;
