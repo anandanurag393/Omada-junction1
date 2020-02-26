@@ -3,10 +3,13 @@ package com.omada.junction;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.util.AttributeSet;
+import android.view.View;
+
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatImageView;
 
 
-public class BottomToolbarButton extends AppCompatImageView{
+public class BottomToolbarButton extends AppCompatImageButton {
 
     int activeImage;
     int idleImage;
@@ -18,21 +21,39 @@ public class BottomToolbarButton extends AppCompatImageView{
         state = false;
     }
 
+    @Override
+    public void onAttachedToWindow(){
+        super.onAttachedToWindow();
+
+        this.setOnClickListener(
+                new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        if (((BottomToolbar) getParent()).changeScreen(getId())) {
+                            carryOutAction();
+                            changeImage();
+                        }
+                    }
+                }
+        );
+    }
+
     public void setToolbarParams(int activeImage, int idleImage, int screenPointer){
 
         this.activeImage = activeImage;
         this.idleImage = idleImage;
         this.screenPointer = screenPointer;
-        this.setImageResource(idleImage);
+        this.setBackgroundColor(getResources().getColor(R.color.JunctionLightGray));
     }
 
     public void changeImage(){
         state = !state;
         if(state){
-            this.setImageResource(activeImage);
+            this.setBackgroundColor(getResources().getColor(R.color.JunctionPurple));
         }
         else{
-            this.setImageResource(idleImage);
+            this.setBackgroundColor(getResources().getColor(R.color.JunctionLightGray));
         }
     }
 

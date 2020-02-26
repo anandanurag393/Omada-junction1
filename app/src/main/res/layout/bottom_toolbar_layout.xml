@@ -4,8 +4,8 @@
 
     <com.omada.junction.BottomToolbarButton
         android:id = "@+id/explore_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center|start"
         android:background="@drawable/active_button_purple"
         android:text = "Explore"
@@ -14,8 +14,8 @@
 
     <com.omada.junction.BottomToolbarButton
         android:id = "@+id/junction_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center"
         android:background="@drawable/active_button_purple"
         android:text = "Junction"
@@ -23,8 +23,8 @@
 
     <com.omada.junction.BottomToolbarButton
         android:id = "@+id/more_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_gravity="center|end"
         android:background="@drawable/active_button_purple"
         android:text = "More"

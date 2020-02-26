@@ -33,12 +33,12 @@ public class Junction extends AppCompatActivity {
                 .replace(R.id.content_area, this.moreScreen, null)
                 .commit();
 
-        activeScreen = 1;
+        activeScreen = 2;
 
-        Toast.makeText(this, "here", Toast.LENGTH_SHORT).show();
     }
 
     public void setActiveScreen(int activeScreen){
+
         if(activeScreen == this.activeScreen){
             return;
         }
@@ -73,6 +73,8 @@ public class Junction extends AppCompatActivity {
                 break;
 
         }
+
+        this.activeScreen = activeScreen;
 
 
     }
