@@ -22,7 +22,7 @@ public class CardScroller extends ScrollView {
     private GestureDetector gestureDetector;
 
     private int activeCard = 0;
-    private int cardsList = 0;  //number of cards
+    private int cardsList = 6;  //number of cards
 
     private int featureHeight;
 
@@ -62,7 +62,6 @@ public class CardScroller extends ScrollView {
                     activeCard = ((scrollY + (featureHeight/2))/featureHeight);
                     int scrollTo = activeCard * featureHeight;
                     smoothScrollTo(0, scrollTo);
-                    Toast.makeText(getContext(), "scroll", Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 else{
@@ -84,17 +83,17 @@ public class CardScroller extends ScrollView {
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             try {
                 //down to up
-                if(e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-                    activeCard -= 1;
+                if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+                    activeCard = (activeCard < (cardsList - 1))? activeCard + 1 : cardsList -1;
                     smoothScrollTo(0, activeCard * featureHeight);
-                    Toast.makeText(getContext(), "fling", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "came here 2", Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 //up to down
-                else if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-                    activeCard += 1;
+                else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+                    activeCard = (activeCard > 0) ? activeCard - 1 : 0;
                     smoothScrollTo(0, activeCard * featureHeight);
-                    Toast.makeText(getContext(), "fling", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "came here", Toast.LENGTH_SHORT).show();
                     return true;
                 }
 
