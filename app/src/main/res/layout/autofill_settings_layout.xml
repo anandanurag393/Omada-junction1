@@ -19,7 +19,6 @@
             android:layout_width="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin = "10dp"
-            android:textSize="16sp"
             />
 
         <Button
@@ -49,9 +48,7 @@
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="30dp"
-
-                >
+                android:paddingBottom="30dp">
 
                 <TextView
                     android:id="@+id/autofillText"
@@ -61,15 +58,14 @@
                     android:paddingStart="@dimen/padding"
                     android:gravity="center_vertical"
                     android:text="Autofill"
-
-                    android:textSize="30dp"></TextView>
+                    android:textSize="30dp"/>
 
                 <Switch
-                    android:id="@+id/sutofill_switch"
+                    android:id="@+id/autofill_switch"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    ></Switch>
+                    />
 
             </LinearLayout>
             <LinearLayout
@@ -83,17 +79,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Name"
-                    android:textSize="@dimen/description"
                     android:paddingStart="@dimen/padding"
-                    ></TextView>
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="exampleName"
                     android:gravity="left"
                     android:paddingLeft="@dimen/padding"
-                    android:textSize="@dimen/content"
-                    ></TextView>
+                    />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/autofill_settings_roll_no"
@@ -106,17 +100,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Roll_no"
-                    android:textSize="@dimen/description"
                     android:paddingStart="@dimen/padding"
-                    ></TextView>
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="exampleRoll_no"
                     android:gravity="left"
                     android:paddingLeft="@dimen/padding"
-                    android:textSize="@dimen/content"
-                    ></TextView>
+                    />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/autofill_settings_Email_id"
@@ -129,17 +121,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email_id"
-                    android:textSize="@dimen/description"
                     android:paddingStart="@dimen/padding"
-                    ></TextView>
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="example@id"
                     android:gravity="left"
                     android:paddingLeft="@dimen/padding"
-                    android:textSize="@dimen/content"
-                    ></TextView>
+                    />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/autofill_settings_year"
@@ -152,17 +142,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Year"
-                    android:textSize="@dimen/description"
                     android:paddingStart="@dimen/padding"
-                    ></TextView>
+                    />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="exampleYear"
                     android:gravity="left"
                     android:paddingLeft="@dimen/padding"
-                    android:textSize="@dimen/content"
-                    ></TextView>
+                    />
             </LinearLayout>
             <Button
                 android:id="@+id/autofill_settings_edit_button"
@@ -172,7 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Edit"
-                ></Button>
+                />
 
         </LinearLayout>
     </ScrollView>

@@ -9,6 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,13 +24,23 @@ public class CardScroller extends ScrollView {
     private int activeCard = 0;
     private int cardsList = 0;  //number of cards
 
+    private int featureHeight;
+
     public CardScroller(Context context, AttributeSet attrs){
         super(context, attrs);
         LayoutInflater inflater = LayoutInflater.from(context);
-        inflater.inflate(R.layout.card_scroller_layout, this, false);
+        inflater.inflate(R.layout.card_scroller_layout, this, true);
+
+        featureHeight = (int)getResources().getDimension(R.dimen.card_height); //TODO adjust for margins and padding
 
         contentLayout = findViewById(R.id.card_scroller_linearlayout);
         //change properties of content layout here
+    }
+
+    @Override
+    public void onAttachedToWindow(){
+        super.onAttachedToWindow();
+        addCards();
     }
 
     public void addCards(){
@@ -42,15 +53,16 @@ public class CardScroller extends ScrollView {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 //If the user swipes
+
                 if (gestureDetector.onTouchEvent(event)) {
-                    return true;
+                   return true;
                 }
-                else if(event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL ){
+                if(event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL ){
                     int scrollY = getScrollY();
-                    int featureHeight = v.getMeasuredHeight(); //TODO adjust for margins and padding
                     activeCard = ((scrollY + (featureHeight/2))/featureHeight);
                     int scrollTo = activeCard * featureHeight;
                     smoothScrollTo(0, scrollTo);
+                    Toast.makeText(getContext(), "scroll", Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 else{
@@ -72,17 +84,17 @@ public class CardScroller extends ScrollView {
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             try {
                 //down to up
-                if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-                    int featureHeight = getMeasuredHeight(); //TODO adjust for margins and padding
-                    activeCard = (activeCard < (cardsList - 1))? activeCard + 1 : cardsList -1;
+                if(e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+                    activeCard -= 1;
                     smoothScrollTo(0, activeCard * featureHeight);
+                    Toast.makeText(getContext(), "fling", Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 //up to down
-                else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
-                    int featureHeight = getMeasuredHeight(); //TODO adjust for margins and padding
-                    activeCard = (activeCard > 0) ? activeCard - 1 : 0;
+                else if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
+                    activeCard += 1;
                     smoothScrollTo(0, activeCard * featureHeight);
+                    Toast.makeText(getContext(), "fling", Toast.LENGTH_SHORT).show();
                     return true;
                 }
 

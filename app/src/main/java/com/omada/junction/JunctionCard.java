@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
+import android.widget.Toast;
 
 public class JunctionCard extends HorizontalScrollView {
 
@@ -15,7 +16,6 @@ public class JunctionCard extends HorizontalScrollView {
 
     public JunctionCard(Context context, AttributeSet attrs) {
         super(context, attrs);
-
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
         inflater.inflate(R.layout.card_layout, this);
@@ -31,7 +31,8 @@ public class JunctionCard extends HorizontalScrollView {
         ((Activity)getContext()).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         float screenWidth = displayMetrics.widthPixels;
 
-        float spaceWidth = (screenWidth - JunctionUtilities.DP_to_PX(getContext(), getResources().getDimension(R.dimen.card_content_width)))/2;
+        float spaceWidth = (screenWidth - getResources().getDimension(R.dimen.card_content_width))/2;
+        //Toast.makeText(getContext(), ""+spaceWidth+ " " + screenWidth + " " + JunctionUtilities.DP_to_PX(getContext(), getResources().getDimension(R.dimen.card_content_width)), Toast.LENGTH_SHORT).show();
 
         this.cardFace = findViewById(R.id.card_face);
         this.cardDesc = findViewById(R.id.card_details);
@@ -39,12 +40,14 @@ public class JunctionCard extends HorizontalScrollView {
         MarginLayoutParams faceMargins;
 
         faceMargins = (MarginLayoutParams) (cardFace.getLayoutParams());
-        faceMargins.leftMargin = (int)spaceWidth;
-        faceMargins.rightMargin = (int)spaceWidth;
+        faceMargins.setMargins((int)spaceWidth, 0, (int)spaceWidth, 0);
+        cardFace.setLayoutParams(faceMargins);
 
         faceMargins = (MarginLayoutParams) (cardDesc.getLayoutParams());
-        faceMargins.leftMargin = 0;
-        faceMargins.rightMargin = (int)spaceWidth;
+        faceMargins.setMargins(0, 0, (int)spaceWidth, 0);
+        cardDesc.setLayoutParams(faceMargins);
+
+        this.requestLayout();
     }
 
 

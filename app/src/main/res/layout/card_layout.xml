@@ -12,15 +12,14 @@
                 android:id = "@+id/card_face"
                 android:layout_height="@dimen/card_height"
                 android:layout_width = "@dimen/card_content_width"
-                android:layout_weight = "1"
-                android:layout_gravity="center"
+                android:background="@color/JunctionPurple"
                 />
 
             <FrameLayout
                 android:id = "@+id/card_details"
                 android:layout_height="@dimen/card_height"
                 android:layout_width = "@dimen/card_desc_width"
-                android:layout_gravity="center"
+                android:background="@color/colorPrimary"
                 />
 
         </LinearLayout>
