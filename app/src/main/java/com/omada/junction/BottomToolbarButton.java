@@ -5,11 +5,12 @@ import android.content.ContextWrapper;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatImageView;
 
 
-public class BottomToolbarButton extends AppCompatImageButton {
+public class BottomToolbarButton extends AppCompatButton {
 
     int activeImage;
     int idleImage;
@@ -44,16 +45,18 @@ public class BottomToolbarButton extends AppCompatImageButton {
         this.activeImage = activeImage;
         this.idleImage = idleImage;
         this.screenPointer = screenPointer;
+/*
         this.setBackgroundColor(getResources().getColor(R.color.JunctionLightGray));
+*/
     }
 
     public void changeImage(){
         state = !state;
         if(state){
-            this.setBackgroundColor(getResources().getColor(R.color.JunctionPurple));
+            this.setTextColor(getResources().getColor(R.color.JunctionPurple));
         }
         else{
-            this.setBackgroundColor(getResources().getColor(R.color.JunctionLightGray));
+            this.setTextColor(getResources().getColor(R.color.JunctionLightGray));
         }
     }
 
