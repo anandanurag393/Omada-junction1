@@ -11,6 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 
 public class CardScroller extends ScrollView {
@@ -20,6 +24,9 @@ public class CardScroller extends ScrollView {
     private static final int SWIPE_MIN_DISTANCE = 5;
     private static final int SWIPE_THRESHOLD_VELOCITY = 300;
     private GestureDetector gestureDetector;
+
+    private FirebaseFirestore firebaseFirestore;
+    private StorageReference storageReference;
 
     private int activeCard = 0;
     private int cardsList = 6;  //number of cards
@@ -31,31 +38,34 @@ public class CardScroller extends ScrollView {
         LayoutInflater inflater = LayoutInflater.from(context);
         inflater.inflate(R.layout.card_scroller_layout, this, true);
 
-        featureHeight = (int)getResources().getDimension(R.dimen.card_height); //TODO adjust for margins and padding
+        featureHeight = (int)getResources().getDimension(R.dimen.card_height) + 2*(int)getResources().getDimension(R.dimen.card_top_margin); //TODO adjust for margins and padding
 
         contentLayout = findViewById(R.id.card_scroller_linearlayout);
         //change properties of content layout here
+
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+
+        contentLayout.addView(new JunctionCard(getContext(), null));
+        contentLayout.addView(new JunctionCard(getContext(), null));
+        contentLayout.addView(new JunctionCard(getContext(), null));
+        contentLayout.addView(new JunctionCard(getContext(), null));
+        contentLayout.addView(new JunctionCard(getContext(), null));
+
     }
 
     @Override
     public void onAttachedToWindow(){
+
         super.onAttachedToWindow();
-        addCards();
-    }
-
-    public void addCards(){
-
-        //TODO
-        //load cards and set cardsList here
 
         setOnTouchListener(new View.OnTouchListener() {
-
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 //If the user swipes
-
                 if (gestureDetector.onTouchEvent(event)) {
-                   return true;
+                    return true;
                 }
                 if(event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL ){
                     int scrollY = getScrollY();
@@ -69,8 +79,15 @@ public class CardScroller extends ScrollView {
                 }
             }
         });
-
         gestureDetector = new GestureDetector(getContext(), new MyGestureDetector());
+
+        addCards();
+    }
+
+    public void addCards(){
+
+        //TODO
+        //load cards and set cardsList here
     }
 
     public void changeContents(int contentIdentifier){
@@ -81,19 +98,18 @@ public class CardScroller extends ScrollView {
     class MyGestureDetector extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+
             try {
                 //down to up
                 if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
                     activeCard = (activeCard < (cardsList - 1))? activeCard + 1 : cardsList -1;
                     smoothScrollTo(0, activeCard * featureHeight);
-                    Toast.makeText(getContext(), "came here 2", Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 //up to down
                 else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
                     activeCard = (activeCard > 0) ? activeCard - 1 : 0;
                     smoothScrollTo(0, activeCard * featureHeight);
-                    Toast.makeText(getContext(), "came here", Toast.LENGTH_SHORT).show();
                     return true;
                 }
 

@@ -7,6 +7,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 //TODO
 //
@@ -16,9 +17,11 @@ public class Junction extends AppCompatActivity {
 
     int activeScreen;
 
-    Fragment feedScreen;
-    Fragment exploreScreen;
-    Fragment moreScreen;
+    private Fragment feedScreen;
+    private Fragment exploreScreen;
+    private Fragment moreScreen;
+
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,7 +32,9 @@ public class Junction extends AppCompatActivity {
         this.exploreScreen = ExploreScreen.newInstance();
         this.moreScreen = MoreScreen.newInstance();
 
-        getSupportFragmentManager().beginTransaction()
+        fragmentManager = getSupportFragmentManager();
+
+        fragmentManager.beginTransaction()
                 .replace(R.id.content_area, this.moreScreen, null)
                 .commit();
 
@@ -39,17 +44,13 @@ public class Junction extends AppCompatActivity {
 
     public void setActiveScreen(int activeScreen){
 
-        if(activeScreen == this.activeScreen){
-            return;
-        }
-
         switch(activeScreen){
             case 0:
                 if(this.activeScreen == 0){
                     exploreScreen = null;
                     exploreScreen = ExploreScreen.newInstance();
                 }
-                getSupportFragmentManager().beginTransaction()
+                fragmentManager.beginTransaction()
                         .replace(R.id.content_area, exploreScreen, null)
                         .commit();
                 break;
@@ -58,7 +59,7 @@ public class Junction extends AppCompatActivity {
                     feedScreen = null;
                     feedScreen = FeedScreen.newInstance();
                 }
-                getSupportFragmentManager().beginTransaction()
+                fragmentManager.beginTransaction()
                         .replace(R.id.content_area, feedScreen, null)
                         .commit();
                 break;
@@ -67,7 +68,7 @@ public class Junction extends AppCompatActivity {
                     moreScreen = null;
                     moreScreen = MoreScreen.newInstance();
                 }
-                getSupportFragmentManager().beginTransaction()
+                fragmentManager.beginTransaction()
                         .replace(R.id.content_area, moreScreen, null)
                         .commit();
                 break;

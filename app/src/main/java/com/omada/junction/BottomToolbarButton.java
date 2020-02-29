@@ -3,14 +3,25 @@ package com.omada.junction;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
-import androidx.appcompat.widget.AppCompatButton;
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatImageView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-public class BottomToolbarButton extends AppCompatButton {
+import java.util.HashMap;
+import java.util.Map;
+
+import static android.content.ContentValues.TAG;
+
+
+public class BottomToolbarButton extends AppCompatImageButton {
 
     int activeImage;
     int idleImage;
@@ -45,23 +56,22 @@ public class BottomToolbarButton extends AppCompatButton {
         this.activeImage = activeImage;
         this.idleImage = idleImage;
         this.screenPointer = screenPointer;
-/*
         this.setBackgroundColor(getResources().getColor(R.color.JunctionLightGray));
-*/
     }
 
     public void changeImage(){
         state = !state;
         if(state){
-            this.setTextColor(getResources().getColor(R.color.JunctionPurple));
+            this.setBackgroundColor(getResources().getColor(R.color.JunctionPurple));
         }
         else{
-            this.setTextColor(getResources().getColor(R.color.JunctionLightGray));
+            this.setBackgroundColor(getResources().getColor(R.color.JunctionLightGray));
         }
     }
 
     public void carryOutAction(){
         //tell main activity to change fragment from here
+
         Context con = getContext();
         while(con instanceof ContextWrapper){
             if(con instanceof Junction){
