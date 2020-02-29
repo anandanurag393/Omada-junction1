@@ -20,7 +20,34 @@
                 android:layout_height="@dimen/card_height"
                 android:layout_width = "@dimen/card_desc_width"
                 android:background="@color/colorPrimary"
-                />
+                >
+
+                <TextView
+                    android:layout_width = "match_parent"
+                    android:layout_height = "520dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="#EBEBEB"
+                    />
+
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="start|bottom"
+                    android:layout_margin="10dp"/>
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_margin="10dp"/>
+                <Button
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_margin ="10dp"/>
+
+            </FrameLayout>
 
         </LinearLayout>
 

@@ -3,10 +3,22 @@ package com.omada.junction;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatImageView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static android.content.ContentValues.TAG;
 
 
 public class BottomToolbarButton extends AppCompatImageButton {
@@ -59,6 +71,7 @@ public class BottomToolbarButton extends AppCompatImageButton {
 
     public void carryOutAction(){
         //tell main activity to change fragment from here
+
         Context con = getContext();
         while(con instanceof ContextWrapper){
             if(con instanceof Junction){
