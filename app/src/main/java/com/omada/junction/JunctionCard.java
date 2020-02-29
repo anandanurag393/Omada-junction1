@@ -9,7 +9,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+
+import java.io.File;
 
 public class JunctionCard extends HorizontalScrollView {
 
@@ -89,6 +97,17 @@ public class JunctionCard extends HorizontalScrollView {
     protected void styleCardDesc(){
         //TODO
         //use this as an overridden method in inheriting classes
+    }
+
+    public void setImage(String STORAGE_URL){
+
+        ImageView imageView = findViewById(R.id.card_face_image);
+
+        Glide.with(getContext())
+                .load(new File(STORAGE_URL)) // Uri of the picture
+                .into(imageView);
+
+        invalidate();
     }
 
 }

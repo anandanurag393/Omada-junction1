@@ -12,14 +12,33 @@
                 android:id = "@+id/card_face"
                 android:layout_height="@dimen/card_height"
                 android:layout_width = "@dimen/card_content_width"
-                android:background="@color/JunctionPurple"
-                />
+                android:background="@drawable/card_face_drawable"
+                >
+
+                <ImageView
+                    android:id = "@+id/card_face_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center|top"
+                    android:background="@drawable/card_content_area_drawable"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text = "EVENT"
+                    android:padding = "10dp"
+                    android:layout_gravity="center|bottom"
+                    android:layout_margin="10dp"
+                    />
+
+            </FrameLayout>
 
             <FrameLayout
                 android:id = "@+id/card_details"
                 android:layout_height="@dimen/card_height"
                 android:layout_width = "@dimen/card_desc_width"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/card_desc_drawable"
                 >
 
                 <TextView
@@ -28,7 +47,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-                    android:background="#EBEBEB"
+                    android:background="@drawable/card_content_area_drawable"
                     />
 
                 <Button
