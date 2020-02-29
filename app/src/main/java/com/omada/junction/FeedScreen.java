@@ -32,7 +32,6 @@ public class FeedScreen extends Fragment {
     public void onViewCreated(View v, Bundle b){
         feedScreenLayout = getView().findViewById(R.id.feed_screen_root);
     }
-
     public static FeedScreen newInstance(){
         FeedScreen f = new FeedScreen();
         //put arguments here
