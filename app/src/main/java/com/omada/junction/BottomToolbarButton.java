@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.AppCompatImageView;
 
@@ -21,7 +22,7 @@ import java.util.Map;
 import static android.content.ContentValues.TAG;
 
 
-public class BottomToolbarButton extends AppCompatImageButton {
+public class BottomToolbarButton extends AppCompatButton {
 
     int activeImage;
     int idleImage;

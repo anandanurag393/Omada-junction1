@@ -23,7 +23,7 @@
             android:textSize="16sp"
             />
 
-        <Button
+        <ImageView
             android:id = "@+id/more_userphoto_imageview"
             android:background="@color/JunctionPurple"
             android:layout_height="100dp"
@@ -82,6 +82,8 @@
                 android:layout_marginRight="10dp"
                 android:padding="10dp"
                 android:gravity = "start|center"
+                android:background="@color/plain"
+                android:stateListAnimator="@null"
                 />
 
             <TextView

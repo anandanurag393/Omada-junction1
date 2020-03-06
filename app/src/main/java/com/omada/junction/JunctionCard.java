@@ -16,6 +16,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.File;
 
@@ -35,6 +38,7 @@ public class JunctionCard extends HorizontalScrollView {
 
         int marg = (int)JunctionUtilities.DP_to_PX(getContext(), 20);
         ((MarginLayoutParams)(findViewById(R.id.card_container_linearlayout)).getLayoutParams()).setMargins(0, marg, 0, marg);
+        setFocusable(false);
 
     }
 
@@ -65,6 +69,8 @@ public class JunctionCard extends HorizontalScrollView {
 
         (this.getLayoutParams()).height = LayoutParams.WRAP_CONTENT;
         (this.getLayoutParams()).width = LayoutParams.MATCH_PARENT;
+
+        this.setImage();
 
         this.requestLayout();
 
@@ -99,15 +105,18 @@ public class JunctionCard extends HorizontalScrollView {
         //use this as an overridden method in inheriting classes
     }
 
-    public void setImage(String STORAGE_URL){
+    public void setImage(){
 
         ImageView imageView = findViewById(R.id.card_face_image);
 
+        // Reference to an image file in Cloud Storage
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("EvoqueCard.png");
         Glide.with(getContext())
-                .load(new File(STORAGE_URL)) // Uri of the picture
+                .load(storageReference)
                 .into(imageView);
 
         invalidate();
+
     }
 
 }

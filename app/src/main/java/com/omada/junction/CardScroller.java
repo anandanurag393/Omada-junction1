@@ -1,15 +1,24 @@
 package com.omada.junction;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -33,6 +42,7 @@ public class CardScroller extends ScrollView {
 
     private int featureHeight;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public CardScroller(Context context, AttributeSet attrs){
         super(context, attrs);
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -43,15 +53,17 @@ public class CardScroller extends ScrollView {
         contentLayout = findViewById(R.id.card_scroller_linearlayout);
         //change properties of content layout here
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        storageReference = FirebaseStorage.getInstance().getReference();
+        JunctionCard card_;
 
+        card_ = new JunctionCard(getContext(), null);
+        ((TextView)(card_.findViewById(R.id.card_desc_text))).setText("Fashion and allure beyond your senses. \nBe there to experience it\n\nRefreshments will be provided");
+        contentLayout.addView(card_);
 
-        contentLayout.addView(new JunctionCard(getContext(), null));
-        contentLayout.addView(new JunctionCard(getContext(), null));
-        contentLayout.addView(new JunctionCard(getContext(), null));
-        contentLayout.addView(new JunctionCard(getContext(), null));
-        contentLayout.addView(new JunctionCard(getContext(), null));
+        card_ = new JunctionCard(getContext(), null);
+        contentLayout.addView(card_);
+
+        card_ = new JunctionCard(getContext(), null);
+        contentLayout.addView(card_);
 
     }
 
