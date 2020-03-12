@@ -55,16 +55,6 @@ public class CardScroller extends ScrollView {
 
         JunctionCard card_;
 
-        card_ = new JunctionCard(getContext(), null);
-        ((TextView)(card_.findViewById(R.id.card_desc_text))).setText("Fashion and allure beyond your senses. \nBe there to experience it\n\nRefreshments will be provided");
-        contentLayout.addView(card_);
-
-        card_ = new JunctionCard(getContext(), null);
-        contentLayout.addView(card_);
-
-        card_ = new JunctionCard(getContext(), null);
-        contentLayout.addView(card_);
-
     }
 
     @Override
@@ -93,13 +83,6 @@ public class CardScroller extends ScrollView {
         });
         gestureDetector = new GestureDetector(getContext(), new MyGestureDetector());
 
-        addCards();
-    }
-
-    public void addCards(){
-
-        //TODO
-        //load cards and set cardsList here
     }
 
     public void changeContents(int contentIdentifier){

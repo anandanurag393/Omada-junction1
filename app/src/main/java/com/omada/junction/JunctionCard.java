@@ -110,7 +110,7 @@ public class JunctionCard extends HorizontalScrollView {
         ImageView imageView = findViewById(R.id.card_face_image);
 
         // Reference to an image file in Cloud Storage
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("EvoqueCard.png");
+        StorageReference storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://junction-b7b44.appspot.com/FocusCard.png");
         Glide.with(getContext())
                 .load(storageReference)
                 .into(imageView);
