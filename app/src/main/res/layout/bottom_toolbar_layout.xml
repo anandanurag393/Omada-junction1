@@ -19,6 +19,7 @@
         android:layout_gravity="center"
         android:text = "J"
         android:background="@color/White"
+
         android:textColor="@color/JunctionLightGray"
         />
 

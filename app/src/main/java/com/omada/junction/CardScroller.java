@@ -53,8 +53,6 @@ public class CardScroller extends ScrollView {
         contentLayout = findViewById(R.id.card_scroller_linearlayout);
         //change properties of content layout here
 
-        JunctionCard card_;
-
     }
 
     @Override
@@ -66,6 +64,7 @@ public class CardScroller extends ScrollView {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 //If the user swipes
+
                 if (gestureDetector.onTouchEvent(event)) {
                     return true;
                 }
@@ -74,6 +73,14 @@ public class CardScroller extends ScrollView {
                     activeCard = ((scrollY + (featureHeight/2))/featureHeight);
                     int scrollTo = activeCard * featureHeight;
                     smoothScrollTo(0, scrollTo);
+
+                    if(activeCard>4)
+                    {
+                        if(scrollTo>scrollY)
+                            recycleCards(1);
+                        else
+                            recycleCards(2);
+                    }
                     return true;
                 }
                 else{
@@ -82,8 +89,21 @@ public class CardScroller extends ScrollView {
             }
         });
         gestureDetector = new GestureDetector(getContext(), new MyGestureDetector());
-
+        for(int i=0;i<9;i++)
+        {
+            contentLayout.addView(loadCard(i));
+        }
     }
+
+    public JunctionCard loadCard(int index)
+    {
+        return new JunctionCard(getContext(),null);
+    }
+
+    public void recycleCards(int type)
+    {
+    }
+
 
     public void changeContents(int contentIdentifier){
         //TODO
@@ -99,12 +119,22 @@ public class CardScroller extends ScrollView {
                 if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
                     activeCard = (activeCard < (cardsList - 1))? activeCard + 1 : cardsList -1;
                     smoothScrollTo(0, activeCard * featureHeight);
+
+                    if(activeCard>4)
+                    {
+                        recycleCards(1);
+                    }
                     return true;
                 }
                 //up to down
                 else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY) {
                     activeCard = (activeCard > 0) ? activeCard - 1 : 0;
                     smoothScrollTo(0, activeCard * featureHeight);
+
+                    if(activeCard>4)
+                    {
+                        recycleCards(2);
+                    }
                     return true;
                 }
 
